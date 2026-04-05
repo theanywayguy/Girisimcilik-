@@ -177,7 +177,7 @@ border:2px solid transparent;cursor:pointer;transition:transform .12s;}
 <div class="hdr">
   <div>
     <div class="hdr-title">📚 Girişimcilik – 75 Soruluk Vize Sınavı</div>
-    <div class="hdr-sub">Mersin Üniversitesi · Gerçek sınav + ders notu soruları</div>
+    <div class="hdr-sub">Mersin Üniversitesi · . + ders notu soruları</div>
   </div>
   <div class="hdr-badge">75 SORU</div>
 </div>
@@ -186,7 +186,7 @@ border:2px solid transparent;cursor:pointer;transition:transform .12s;}
 
 <script>
 // ═══════════════════════════════════════════════════════
-// src: "R" = gerçek sınav sorusu (E1 veya E2), "N" = ders notundan
+// src: "R" = . sorusu (E1 veya E2), "N" = ders notundan
 // ═══════════════════════════════════════════════════════
 const QS = [
 
@@ -579,7 +579,7 @@ function renderExam(){
   const pct=Math.round((S.idx+1)/total*100);
   const allAns=Object.keys(S.ans).length===total;
   const srcBadge=q.src==='R'
-    ?`<span class="q-src-real">📝 Gerçek Sınav</span>`
+    ?`<span class="q-src-real">📝 .</span>`
     :`<span class="q-src-note">📖 Ders Notu</span>`;
 
   const opts=q.opts.map((o,i)=>{
