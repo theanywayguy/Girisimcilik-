@@ -1,1 +1,715 @@
-L
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Girişimcilik – 75 Soruluk Vize Sınavı</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c1420;--bg2:#111d2e;--card:#162235;--card2:#1a2a40;
+  --border:#243450;--accent:#3b82f6;--accent2:#60a5fa;
+  --teal:#0d9488;--green:#10b981;--red:#ef4444;--yellow:#f59e0b;
+  --text:#e2e8f0;--text2:#8899bb;--text3:#3d5070;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;
+  background-image:radial-gradient(ellipse at 15% 10%,#1e3a6e22 0%,transparent 45%),
+  radial-gradient(ellipse at 85% 90%,#0d948822 0%,transparent 45%);}
+
+.hdr{background:linear-gradient(135deg,#0e1e35,#1a2e50);border-bottom:1px solid var(–border);
+padding:13px 22px;display:flex;align-items:center;justify-content:space-between;
+position:sticky;top:0;z-index:200;}
+.hdr-title{font-size:.95rem;font-weight:700;color:var(–accent2);}
+.hdr-sub{font-size:.65rem;color:var(–text3);font-family:‘JetBrains Mono’,monospace;margin-top:1px;}
+.hdr-badge{background:var(–accent);color:white;font-size:.65rem;font-weight:700;
+padding:3px 10px;border-radius:20px;font-family:‘JetBrains Mono’,monospace;letter-spacing:.8px;}
+
+.wrap{max-width:840px;margin:0 auto;padding:22px 16px;}
+
+/* START */
+.start-card{background:linear-gradient(135deg,var(–card),var(–card2));
+border:1px solid var(–border);border-radius:20px;padding:44px 32px;text-align:center;}
+.start-icon{font-size:3.2rem;margin-bottom:14px;}
+.start-title{font-size:1.3rem;font-weight:700;margin-bottom:8px;}
+.start-desc{color:var(–text2);font-size:.86rem;line-height:1.75;margin-bottom:24px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px;}
+.gi{background:var(–bg2);border:1px solid var(–border);border-radius:10px;padding:12px 8px;text-align:center;}
+.gi-n{font-size:1.5rem;font-weight:700;color:var(–accent2);font-family:‘JetBrains Mono’,monospace;}
+.gi-l{font-size:.64rem;color:var(–text3);text-transform:uppercase;margin-top:2px;}
+.pills{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:24px;}
+.pill{background:#1e3a6e22;border:1px solid #1e3a6e66;color:var(–accent2);
+font-size:.64rem;padding:3px 9px;border-radius:20px;font-weight:600;}
+
+/* TOGGLE */
+.shuf-row{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:22px;}
+.toggle{position:relative;display:inline-block;width:40px;height:22px;}
+.toggle input{display:none;}
+.toggle-slider{position:absolute;inset:0;background:var(–card2);border-radius:22px;
+cursor:pointer;transition:.25s;border:1px solid var(–border);}
+.toggle-slider:before{content:’’;position:absolute;width:16px;height:16px;
+left:3px;top:3px;background:var(–text3);border-radius:50%;transition:.25s;}
+.toggle input:checked+.toggle-slider{background:var(–accent);border-color:var(–accent);}
+.toggle input:checked+.toggle-slider:before{transform:translateX(18px);background:white;}
+.shuf-lbl{font-size:.76rem;color:var(–text2);}
+
+/* PROGRESS */
+.prog-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.prog-wrap{flex:1;height:5px;background:var(–card2);border-radius:10px;overflow:hidden;}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(–accent),var(–teal));border-radius:10px;transition:width .35s;}
+.prog-txt{font-size:.72rem;font-family:‘JetBrains Mono’,monospace;color:var(–text3);white-space:nowrap;}
+
+/* TOP BAR */
+.top-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+.ans-count{font-size:.68rem;color:var(–text3);font-family:‘JetBrains Mono’,monospace;}
+
+/* Q CARD */
+.q-card{background:linear-gradient(135deg,var(–card),var(–card2));
+border:1px solid var(–border);border-radius:14px;padding:24px 26px;margin-bottom:14px;
+animation:fadeUp .25s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.q-meta{display:flex;align-items:center;gap:7px;margin-bottom:8px;flex-wrap:wrap;}
+.q-num{font-size:.63rem;font-family:‘JetBrains Mono’,monospace;color:var(–accent);
+font-weight:700;letter-spacing:.8px;text-transform:uppercase;}
+.q-tag{font-size:.6rem;background:#0d948820;border:1px solid #0d948850;
+color:var(–teal);padding:2px 8px;border-radius:20px;font-weight:600;}
+.q-src-real{font-size:.58rem;background:#f59e0b18;border:1px solid #f59e0b50;
+color:var(–yellow);padding:2px 7px;border-radius:20px;font-weight:700;}
+.q-src-note{font-size:.58rem;background:#3b82f618;border:1px solid #3b82f650;
+color:var(–accent2);padding:2px 7px;border-radius:20px;font-weight:600;}
+.q-text{font-size:.95rem;font-weight:500;line-height:1.68;}
+
+/* OPTIONS */
+.options{margin-top:16px;display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:11px;padding:11px 14px;border-radius:10px;
+border:1.5px solid var(–border);background:var(–bg);cursor:pointer;
+transition:all .14s;user-select:none;}
+.opt:hover:not(.disabled){border-color:var(–accent);background:#1e3a6e22;transform:translateX(2px);}
+.opt.correct{border-color:var(–green)!important;background:#10b98118!important;}
+.opt.wrong{border-color:var(–red)!important;background:#ef444418!important;}
+.opt.disabled{cursor:default;}
+.opt-l{min-width:26px;height:26px;border-radius:6px;background:var(–card2);
+border:1px solid var(–border);display:flex;align-items:center;justify-content:center;
+font-size:.72rem;font-weight:700;font-family:‘JetBrains Mono’,monospace;
+color:var(–text2);flex-shrink:0;transition:all .14s;}
+.opt.correct .opt-l{background:var(–green);color:white;border-color:var(–green);}
+.opt.wrong .opt-l{background:var(–red);color:white;border-color:var(–red);}
+.opt-t{font-size:.86rem;line-height:1.5;padding-top:2px;}
+
+.fb{margin-top:10px;padding:10px 13px;border-radius:8px;font-size:.79rem;font-weight:500;display:none;}
+.fb.show{display:block;}
+.fb-ok{background:#10b98118;border:1px solid var(–green);color:#6ee7b7;}
+.fb-err{background:#ef444418;border:1px solid var(–red);color:#fca5a5;}
+
+/* BUTTONS */
+.btn-row{display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+.btn{padding:9px 18px;border-radius:9px;font-family:‘Sora’,sans-serif;font-size:.82rem;
+font-weight:600;cursor:pointer;border:none;transition:all .14s;display:flex;align-items:center;gap:6px;}
+.btn-p{background:var(–accent);color:white;}
+.btn-p:hover{background:#2563eb;transform:translateY(-1px);}
+.btn-s{background:var(–card);border:1px solid var(–border);color:var(–text2);}
+.btn-s:hover:not(:disabled){background:var(–card2);color:var(–text);}
+.btn-s:disabled{opacity:.3;cursor:default;}
+.btn-g{background:var(–green);color:white;}
+.btn-g:hover{background:#059669;}
+.btn-y{background:var(–yellow);color:#111;}
+.btn-y:hover{background:#d97706;}
+.btn-r{background:var(–red);color:white;font-size:.73rem!important;padding:7px 10px!important;}
+.btn-r:hover{background:#dc2626;}
+
+/* RESULTS */
+.res-hero{background:linear-gradient(135deg,var(–card),var(–card2));
+border:1px solid var(–border);border-radius:18px;padding:30px 24px;text-align:center;margin-bottom:18px;}
+.ring{width:116px;height:116px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+margin:0 auto 16px;box-shadow:0 0 28px #3b82f633;}
+.ring-in{width:86px;height:86px;border-radius:50%;background:var(–bg);
+display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.ring-pct{font-size:1.5rem;font-weight:700;font-family:‘JetBrains Mono’,monospace;color:var(–accent2);}
+.ring-lbl{font-size:.57rem;color:var(–text3);text-transform:uppercase;}
+.res-msg{font-size:1.05rem;font-weight:700;margin-bottom:4px;}
+.res-det{font-size:.8rem;color:var(–text2);}
+.res-grid{display:flex;gap:9px;justify-content:center;margin-top:16px;flex-wrap:wrap;}
+.rg{background:var(–bg);border:1px solid var(–border);border-radius:9px;padding:9px 16px;text-align:center;min-width:68px;}
+.rg-n{font-size:1.2rem;font-weight:700;font-family:‘JetBrains Mono’,monospace;}
+.rg-l{font-size:.62rem;color:var(–text3);text-transform:uppercase;margin-top:2px;}
+
+/* TOPIC PERF */
+.tp-box{background:var(–card);border:1px solid var(–border);border-radius:12px;padding:16px 18px;margin-bottom:16px;}
+.tp-title{font-size:.72rem;font-weight:700;color:var(–text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;}
+.tp-row{display:flex;align-items:center;gap:9px;margin-bottom:6px;}
+.tp-name{font-size:.7rem;color:var(–text2);width:190px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.tp-bw{flex:1;height:4px;background:var(–bg2);border-radius:10px;overflow:hidden;}
+.tp-b{height:100%;border-radius:10px;}
+.tp-s{font-size:.67rem;font-family:‘JetBrains Mono’,monospace;color:var(–text3);min-width:30px;text-align:right;}
+
+/* TRACKER */
+.sec-ttl{font-size:.73rem;font-weight:700;color:var(–text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+.tracker{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;}
+.ti{width:33px;height:33px;border-radius:7px;display:flex;align-items:center;justify-content:center;
+font-size:.68rem;font-weight:700;font-family:‘JetBrains Mono’,monospace;
+border:2px solid transparent;cursor:pointer;transition:transform .12s;}
+.ti.tc{background:#10b98118;border-color:var(–green);color:#6ee7b7;}
+.ti.tw{background:#ef444418;border-color:var(–red);color:#fca5a5;}
+.ti.tu{background:#f59e0b18;border-color:var(–yellow);color:#fde68a;}
+.ti:hover{transform:scale(1.12);}
+
+/* WRONG LIST */
+.wc{background:var(–bg);border:1px solid var(–border);border-radius:10px;padding:13px;margin-bottom:8px;}
+.wc-meta{display:flex;gap:5px;align-items:center;margin-bottom:5px;flex-wrap:wrap;}
+.wc-num{font-size:.64rem;color:var(–text3);}
+.wc-tag{font-size:.58rem;background:#0d948818;border:1px solid #0d948848;color:var(–teal);padding:1px 6px;border-radius:10px;}
+.wc-q{font-size:.85rem;margin-bottom:7px;line-height:1.5;}
+.wc-u{font-size:.77rem;color:#fca5a5;}
+.wc-c{font-size:.77rem;color:#6ee7b7;margin-top:3px;}
+.wc-note{font-size:.71rem;color:var(–text3);margin-top:5px;padding-top:5px;border-top:1px solid var(–border);line-height:1.5;}
+
+@media(max-width:560px){
+.start-card{padding:26px 14px;}
+.q-card{padding:18px 13px;}
+.tp-name{width:120px;}
+}
+</style>
+
+</head>
+<body>
+
+<div class="hdr">
+  <div>
+    <div class="hdr-title">📚 Girişimcilik – 75 Soruluk Vize Sınavı</div>
+    <div class="hdr-sub">Mersin Üniversitesi · Gerçek sınav + ders notu soruları</div>
+  </div>
+  <div class="hdr-badge">75 SORU</div>
+</div>
+
+<div class="wrap" id="app"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// src: "R" = gerçek sınav sorusu (E1 veya E2), "N" = ders notundan
+// ═══════════════════════════════════════════════════════
+const QS = [
+
+/* ── 1. GİRİŞİMCİLİK KAVRAMLARI ── */
+{n:1, tag:'Girişimcilik Kavramları', src:'R',
+q:'Üretim faktörlerini bir araya getirerek iktisadi mal ve hizmet üretimi için gerekli girişimi başlatan, finansal kaynakları ve pazarları bulan kişiye ne denir?',
+opts:['Esnaf','Tacir','Yönetici','Lider','Girişimci'], ans:4},
+
+{n:2, tag:'Girişimcilik Kavramları', src:'N',
+q:'Tacir sıfatını kazanacak kadar sermayesi olmayan, geliri daha çok emeğine dayanan ve bağımsız çalışan kişiye ne denir?',
+opts:['Tacir','Yönetici','Esnaf','Girişimci','Lider'], ans:2},
+
+{n:3, tag:'Girişimcilik Kavramları', src:'N',
+q:'Bir ticari işletmeyi kısmen de olsa kendi adına işleten kişiye ne denir?',
+opts:['Esnaf','Lider','Teknisyen','Tacir','Girişimci'], ans:3},
+
+/* ── 2. İŞLETME & YÖNETİM FONKSİYONLARI ── */
+{n:4, tag:'Yönetim Fonksiyonları', src:'R',
+q:'Aşağıdakilerden hangisi yönetimin fonksiyonlarından biri değildir?',
+opts:['Planlama','Organizasyon','İnsan kaynakları','Yöneltme','Denetim'], ans:2,
+note:'İnsan kaynakları yönetimi işletmenin ayrı bir fonksiyonudur. Yönetimin 5 fonksiyonu: planlama, organizasyon, yöneltme, eşgüdümleme, denetim.'},
+
+{n:5, tag:'Yönetim Fonksiyonları', src:'R',
+q:'Örgütsel yapının işletilmesi veya harekete geçirilmesi için gerekli olan fonksiyon yönetim fonksiyonlarından hangisidir?',
+opts:['Planlama','Yöneltme','Eşgüdümleme','Denetim','Organizasyon'], ans:1},
+
+{n:6, tag:'Yönetim Fonksiyonları', src:'N',
+q:'İşletmenin çalışmalarını kolaylaştırmak için bütün eylemler ve bölümler arasında uyumun sağlanması hangi yönetim fonksiyonudur?',
+opts:['Planlama','Denetim','Organizasyon','Eşgüdümleme','Yöneltme'], ans:3},
+
+{n:7, tag:'Yönetim Fonksiyonları', src:'N',
+q:'İşletmede ne yapılacağının önceden kararlaştırılması, neyin – ne zaman – nerede ve kim tarafından yapılacağının belirlenmesi hangi yönetim fonksiyonudur?',
+opts:['Organizasyon','Yöneltme','Planlama','Denetim','Eşgüdümleme'], ans:2},
+
+{n:8, tag:'Yönetim Fonksiyonları', src:'N',
+q:'Örgütte gerçekleşen eylemler ile planlananların karşılaştırılması, sapmaların giderilmesi hangi fonksiyondur?',
+opts:['Planlama','Organizasyon','Yöneltme','Eşgüdümleme','Denetim'], ans:4},
+
+/* ── 3. GİRİŞİMCİ / MÜTEŞEBBİS KAVRAMI ── */
+{n:9, tag:'Girişimci / Müteşebbis', src:'N',
+q:'Girişimciyi yöneticiden ayıran en temel özellik nedir?',
+opts:['Daha fazla çalışması','Kâr veya zarar etme riskini üstlenmesi','Daha iyi eğitime sahip olması','Daha büyük sermayeye sahip olması','Daha fazla personel çalıştırması'], ans:1},
+
+{n:10, tag:'Girişimci / Müteşebbis', src:'N',
+q:'Girişimci ile ilgili tanımların ortak noktası nedir?',
+opts:['Sermayenin fazla olması','Devlet desteğinden yararlanmak','Başkalarının göremediği fırsatları görüp iş fikrine dönüştürmek ve risk almaya yatkın olmak','Yüksek eğitim düzeyi','Büyük işletme kurmak'], ans:2},
+
+{n:11, tag:'Girişimci / Müteşebbis', src:'N',
+q:'Kamu girişimciliğinin piyasa ekonomisi girişimciliğinden temel farkı nedir?',
+opts:['Kamu girişimcisi kâr odaklıdır','Piyasa girişimcisi devlet desteklidir','Kamu girişimcisi katı bütçe kısıtlamaları ve siyasi kararlarla çalışır; piyasa girişimcisi sürekli yenilik yaparak yeni pazarlar arar','Piyasa girişimcisi risk almaz','Kamu girişimcisi daha dinamiktir'], ans:2},
+
+/* ── 4. GİRİŞİMCİNİN TEMEL FONKSİYONLARI ── */
+{n:12, tag:'Girişimci Temel Fonksiyonları', src:'R',
+q:'Aşağıdakilerden hangisi girişimcinin temel fonksiyonlarından biri değildir?',
+opts:['Mal ve hizmet üretmek','Yeni üretim yöntemleri geliştirmek','Endüstride yeni organizasyonlar kurmak','Yeni pazarlara ulaşmak','Hammaddelerin sağlanabileceği yeni kaynaklar bulmak'], ans:0,
+note:'Girişimcinin fonksiyonu "yeni mal ve hizmet üretmek veya kalitelerini yükseltmek"tir; sadece genel anlamda "üretmek" değil.'},
+
+{n:13, tag:'Girişimci Temel Fonksiyonları', src:'N',
+q:'Girişimcinin temel fonksiyonları kaç tanedir?',
+opts:['3','4','5','6','7'], ans:2,
+note:'5 temel fonksiyon: yeni mal/hizmet üretmek, yeni üretim yöntemleri, yeni organizasyonlar, yeni pazarlar, yeni hammadde kaynakları.'},
+
+{n:14, tag:'Girişimci Temel Fonksiyonları', src:'N',
+q:'"Hammaddelerin ve benzeri maddelerin sağlanabileceği yeni kaynaklar bulmak" girişimcinin hangi temel fonksiyonudur?',
+opts:['Yeni pazarlara ulaşmak','Yeni üretim yöntemleri geliştirmek','Yeni organizasyonlar kurmak','Yeni tedarik kaynakları bulmak','Yeni mal ve hizmet üretmek'], ans:3},
+
+/* ── 5. GİRİŞİMCİLİK ÖZEL ── */
+{n:15, tag:'Girişimcilik Özel', src:'R',
+q:'Aşağıdakilerden hangisi girişimci veya işletmenin başarı imkânını artıran hususlardan biri değildir?',
+opts:['Girişimcilik iklimi','Girişimcilik kültürü','Ekonomik istikrar','Uygun altyapı','Uygun destekler'], ans:1,
+note:'5 dış başarı koşulu: iklim, ekonomik istikrar, altyapı, kurumsal yapı, destekler. "Girişimcilik kültürü" bu listede yer almaz.'},
+
+{n:16, tag:'Girişimcilik Özel', src:'N',
+q:'Girişimcilik kültüründe "vizyon" ve "hayal gücü" hangi üretim faktörünün önüne geçer?',
+opts:['Emek','Hammadde','Teknoloji','Sermaye','Pazar'], ans:3},
+
+{n:17, tag:'Girişimcilik Özel', src:'N',
+q:'Türkiye\'de 1930-1950 dönemi girişimcilik tarihi hangi isimle anılır?',
+opts:['Ulusal ekonominin kuruluşu','Liberal ekonomiye geçiş','Devletçilik dönemi','Planlı ekonomi','Dışa açık dönem'], ans:2},
+
+{n:18, tag:'Girişimcilik Özel', src:'N',
+q:'Türkiye\'de 1980 sonrası dönemin girişimcilik açısından temel özelliği nedir?',
+opts:['Devletçilik','İthal ikameci büyüme','Dışa açık liberal ekonomi ve ihracata yönelik kalkınma','Planlı ekonomi','Karma ekonomi modeli'], ans:2},
+
+/* ── 6. İŞLETMENİN ÇEVRESİNDEKİ UNSURLAR ── */
+{n:19, tag:'İşletmenin Çevre Unsurları', src:'R',
+q:'Aşağıdakilerden hangisi işletmenin ulusal çevresinde yer alan unsurlardan biri değildir?',
+opts:['Rakipler','Devlet ve kamu kurumları','Sivil toplum kuruluşları','Sendikalar','Tüketici veya müşteriler'], ans:4,
+note:'Tüketici ve müşteriler yerel çevrededir, ulusal çevrede değil.'},
+
+{n:20, tag:'İşletmenin Çevre Unsurları', src:'N',
+q:'Tüketici veya müşteriler işletmenin hangi çevre kategorisinde yer alır?',
+opts:['Ulusal çevre','Uluslararası çevre','Yerel çevre','Küresel çevre','Sektörel çevre'], ans:2},
+
+{n:21, tag:'İşletmenin Çevre Unsurları', src:'N',
+q:'Çokuluslu veya küresel şirketler işletmenin hangi çevre kategorisinde yer alır?',
+opts:['Yerel çevre','Ulusal çevre','Uluslararası çevre','Bölgesel çevre','Sektörel çevre'], ans:2},
+
+/* ── 7. YARATICILIK EGZERSİZLERİ ── */
+{n:22, tag:'Yaratıcılık Egzersizleri', src:'R',
+q:'Aşağıdaki tekniklerden hangisi sorunun tanımlanması ve yapılan iyileştirmenin seviyesinin ölçülmesi amacıyla kullanılabilecek önemli bir araçtır?',
+opts:['Fayda-maliyet analizi','Pareto diyagramı','Nominal grup tekniği','Beyin fırtınası tekniği','Gordon tekniği'], ans:1},
+
+{n:23, tag:'Yaratıcılık Egzersizleri', src:'N',
+q:'Beyin fırtınası tekniğinde fikirler nasıl değerlendirilir?',
+opts:['Anında eleştirilir','Sesli oylama ile elenir','Söylenirken eleştirilmez ve tartışılmaz','Sadece yöneticiler değerlendirir','Yazılı olarak toplanır'], ans:2},
+
+{n:24, tag:'Yaratıcılık Egzersizleri', src:'N',
+q:'Nominal grup tekniğinde en yüksek değeri alan sorun ile ne yapılır?',
+opts:['Görmezden gelinir','Silinir','Üzerinde çalışmak için ayrılır','En sona bırakılır','Oya sunulur'], ans:2},
+
+{n:25, tag:'Yaratıcılık Egzersizleri', src:'N',
+q:'Pareto diyagramında kategoriler nasıl sıralanır?',
+opts:['Alfabetik sıraya göre','Artan sıklık veya maliyete göre','Azalan sıklık veya maliyete göre soldan sağa','Rastgele','Büyükten küçüğe sağdan sola'], ans:2},
+
+{n:26, tag:'Yaratıcılık Egzersizleri', src:'N',
+q:'Fayda-maliyet analizinin temel amacı nedir?',
+opts:['Personel sayısını belirlemek','Bir proje veya faaliyetin fayda ve maliyetini karşılaştırarak yapılıp yapılmayacağını belirlemek','Rakip analizi yapmak','Muhasebe kayıtlarını denetlemek','Pazar araştırması yapmak'], ans:1},
+
+/* ── 8. İŞLETMENİN ÖZEL AMAÇLARI ── */
+{n:27, tag:'İşletmenin Özel Amaçları', src:'R',
+q:'Aşağıdakilerden hangisi işletmenin amaçlarından biri değildir?',
+opts:['Topluma hizmet etmek yoluyla sosyal sorumluluk işlevini yerine getirmek','Varlığını sürdürmek ve büyümek','Kâr elde etmek','Müşterilere daha kaliteli mal ve hizmetler sunmak','İşgörenlerini eğitmek, mesleki gelişimlerini sağlamak'], ans:4,
+note:'İşgörenleri eğitmek ÖZEL amaç kapsamındadır, genel amaçlar arasında sayılmaz.'},
+
+{n:28, tag:'İşletmenin Özel Amaçları', src:'N',
+q:'"Müşterilere daha kaliteli mal ve hizmetler sunmak" işletmenin hangi amaç türüne girer?',
+opts:['Genel amaç','Finansal amaç','Özel amaç','Sosyal amaç','Stratejik amaç'], ans:2},
+
+{n:29, tag:'İşletmenin Özel Amaçları', src:'N',
+q:'İşletmenin genel amaçları kaç başlık altında sıralanır?',
+opts:['2','3','4','5','6'], ans:1,
+note:'Genel amaçlar 3\'tür: (1) uzun dönemde kâr, (2) sosyal sorumluluk, (3) varlığını sürdürmek ve büyümek.'},
+
+/* ── 9. İŞLETME GENEL SINIFLAR & DESTEKLEYİCİ FONKSİYONLAR ── */
+{n:30, tag:'Sınıflar & Destekleyici Fonksiyonlar', src:'R',
+q:'Aşağıdaki işletme fonksiyonlarından hangisi destekleyici fonksiyonlar içerisinde yer alır?',
+opts:['Yönetim','Halkla ilişkiler','Tedarik','Üretim','Pazarlama'], ans:1},
+
+{n:31, tag:'Sınıflar & Destekleyici Fonksiyonlar', src:'R',
+q:'Aşağıdaki işletme fonksiyonlarından hangisi kolaylaştırıcı fonksiyonlar içerisinde yer alır?',
+opts:['Yönetim','İnsan kaynakları yönetimi','Tedarik','Üretim','Pazarlama'], ans:4},
+
+{n:32, tag:'Sınıflar & Destekleyici Fonksiyonlar', src:'N',
+q:'Mikro işletmeler kaçtan az işgören çalıştırır ve yıllık net satış hasılatı ne kadardır?',
+opts:['5 kişiden az, 500 bin TL','10 kişiden az, 1 milyon TL','20 kişiden az, 2 milyon TL','50 kişiden az, 8 milyon TL','100 kişiden az, 50 milyon TL'], ans:1},
+
+{n:33, tag:'Sınıflar & Destekleyici Fonksiyonlar', src:'N',
+q:'Çalıştırdıkları kişi sayısı 2000 ve daha fazla olan işletmelere ne denir?',
+opts:['Büyük işletme','Orta işletme','Dev işletme','Küresel işletme','Mega işletme'], ans:2},
+
+/* ── 10. TEDARİK FONKSİYONUNUN KAPSAMI ── */
+{n:34, tag:'Tedarik Fonksiyonu', src:'R',
+q:'Aşağıdakilerden hangisi tedarik uygunluk kriterlerinden biri değildir?',
+opts:['Miktar','Kalite','Zaman','Fiyat','Sevkiyat'], ans:4,
+note:'Tedarik uygunluk kriterleri: miktar, kalite, zaman ve fiyattır.'},
+
+{n:35, tag:'Tedarik Fonksiyonu', src:'N',
+q:'İşletmenin malzemeyi kendi üretmesine karar vermesinin nedenlerinden hangisi doğrudur?',
+opts:['Rakiplerden gizli bilgi almak','Atıl kapasitenin değerlendirilmesi ve tedarik güvenliğinin sağlanması','Personel sayısını azaltmak','Pazar araştırması yapmak','Üretim maliyetlerini artırmak'], ans:1},
+
+{n:36, tag:'Tedarik Fonksiyonu', src:'N',
+q:'İşletme içi üretim kararının dezavantajlarından biri değildir?',
+opts:['Ek personel ve makine maliyeti','Koordinasyon güçlüğü','Uzman işgücü ihtiyacının artması','Risk dağıtma imkânından yoksun kalma','Tedarik kaynaklarından tam bağımsızlık sağlama'], ans:4},
+
+/* ── 11. YÖNETİM SÜRECİ YAKLAŞIMI ── */
+{n:37, tag:'Yönetim Süreci Yaklaşımı', src:'R',
+q:'Rutin işlerin astlara bırakılması ve stratejik nitelikteki önemli işlerin üst yöneticiler tarafından yerine getirilmesi ilkesi yönetimin hangi özelliğiyle ifade edilir?',
+opts:['Beşeri','Grup olma','İşbirliği','Hiyerarşik yapı','İstisnalarla yönetim'], ans:4},
+
+{n:38, tag:'Yönetim Süreci Yaklaşımı', src:'N',
+q:'Yönetim fonksiyonunda "organizasyon" neyi kapsar?',
+opts:['Ne yapılacağının önceden kararlaştırılmasını','Yönetim organlarının belirlenmesi, yetki-sorumluluk dağılımı ve kaynakların düzenlenmesini','Faaliyetlerin uygulanmasını','Gerçekleşenlerin planlarla karşılaştırılmasını','Bölümler arasında uyumun sağlanmasını'], ans:1},
+
+/* ── 12. KAPASİTE ÇEŞİTLERİ ── */
+{n:39, tag:'Kapasite Çeşitleri', src:'N',
+q:'Bir işletmenin teknik projesinde gösterilen ve hesaplamayla bulunan kapasite türü hangisidir?',
+opts:['Fiili kapasite','Aylak kapasite','Normal kapasite','Teorik kapasite','Pratik kapasite'], ans:3},
+
+{n:40, tag:'Kapasite Çeşitleri', src:'N',
+q:'Teorik kapasiteden işleyiş kesintileri çıkarılarak bulunan kapasiteye ne denir?',
+opts:['Teorik kapasite','Aylak kapasite','Fiili kapasite','Normal/pratik kapasite','Tam kapasite'], ans:3},
+
+{n:41, tag:'Kapasite Çeşitleri', src:'N',
+q:'Pratik kapasitenin yalnızca yararlanılan kısmına ne denir?',
+opts:['Teorik kapasite','Normal kapasite','Fiili kapasite','Aylak/atıl kapasite','Optimal kapasite'], ans:2},
+
+{n:42, tag:'Kapasite Çeşitleri', src:'N',
+q:'Pratik kapasite ile fiili kapasite arasındaki farka ne ad verilir?',
+opts:['Teorik kapasite','Normal kapasite','Fiili kapasite','Aylak/atıl kapasite','Optimal kapasite'], ans:3},
+
+/* ── 13. PAZARLAMA TEMEL FONKSİYONLARI ── */
+{n:43, tag:'Pazarlama Fonksiyonları', src:'R',
+q:'Aşağıdakilerden hangisi pazarlamanın kolaylaştırıcı fonksiyonlarındandır?',
+opts:['Satın alma','Taşıma','Depolama','Risk taşıma','Satma'], ans:3,
+note:'Değişim: satın alma ve satma. Fiziksel: taşıma ve depolama. Kolaylaştırıcı: finans, risk taşıma, standartlaştırma/dereceleme, pazar bilgisi.'},
+
+{n:44, tag:'Pazarlama Fonksiyonları', src:'N',
+q:'Pazarlamanın değişim fonksiyonları hangileridir?',
+opts:['Taşıma ve depolama','Satın alma ve satma','Finans ve risk taşıma','Standartlaştırma ve pazar bilgisi','Reklam ve halkla ilişkiler'], ans:1},
+
+{n:45, tag:'Pazarlama Fonksiyonları', src:'N',
+q:'"Üretim yerinden tüketim yerlerine geçişi" ifade eden pazarlama fonksiyonu hangisidir?',
+opts:['Depolama','Risk taşıma','Finans','Taşıma','Standartlaştırma'], ans:3},
+
+/* ── 14. ÖZKAYNAK & OTOFİNANSMAN ── */
+{n:46, tag:'Özkaynak & Otofinansman', src:'R',
+q:'İşletme faaliyetleri sonucunda oluşan kârların dağıtılmayarak işletmede bırakılması yoluyla sermaye ihtiyacının karşılanmasına ne ad verilir?',
+opts:['Öz kaynaklardan finansman','Otofinansman','Dış kaynaklardan finansman','Kısa süreli dış kaynak','Orta süreli dış kaynak'], ans:1},
+
+{n:47, tag:'Özkaynak & Otofinansman', src:'N',
+q:'Bir işletmenin sahip veya ortaklarınca kuruluşta ya da sonradan konulan sermayeye ne denir?',
+opts:['Otofinansman','Dış kaynak','Öz kaynak sermayesi','Kısa süreli kaynak','Uzun süreli kaynak'], ans:2},
+
+{n:48, tag:'Özkaynak & Otofinansman', src:'N',
+q:'Öz kaynak ile otofinansman arasındaki temel fark nedir?',
+opts:['İkisi aynı anlama gelir','Öz kaynak ortakların koyduğu sermayeyken otofinansman dağıtılmayan kârların işletmede bırakılmasıdır','Otofinansman dış kaynaktır','Öz kaynak yalnızca kısa vadelidir','Otofinansman yalnızca büyük işletmelerde uygulanır'], ans:1},
+
+/* ── 15. KISA / ORTA / UZUN SÜRELİ FİNANSMAN KAYNAKLARI ── */
+{n:49, tag:'Finansman Kaynakları', src:'R',
+q:'Aşağıdakilerden hangisi uzun süreli dış kaynaklardan biri değildir?',
+opts:['Risk sermayesi','Kıyı bankacılığı','Tahvil','Kâr ve zarar ortaklığı belgesi','Factoring'], ans:4,
+note:'Factoring kısa süreli finansman kaynağıdır.'},
+
+{n:50, tag:'Finansman Kaynakları', src:'N',
+q:'Türkiye uygulamasında orta süreli finansman genellikle kaç yıl arasındaki süreyi kapsar?',
+opts:['1-3 yıl','2-7 yıl','1-5 yıl','3-10 yıl','5-10 yıl'], ans:2},
+
+{n:51, tag:'Finansman Kaynakları', src:'N',
+q:'Kısa süreli dış kaynak sermayesi kaç yıl veya daha az süreli kullanılır?',
+opts:['3 yıl','5 yıl','2 yıl','1 yıl','6 ay'], ans:3},
+
+{n:52, tag:'Finansman Kaynakları', src:'N',
+q:'Leasing (finansal kiralama) hangi finansman türüne girer?',
+opts:['Kısa süreli dış kaynak','Öz kaynak','Orta süreli dış kaynak','Uzun süreli dış kaynak','Otofinansman'], ans:2},
+
+/* ── 16. MUHASEBENİN TEMEL FONKSİYONLARI: İHTİYATLILIK & SOSYAL SORUMLULUK ── */
+{n:53, tag:'Muhasebe: İhtiyatlılık & Sosyal Sorumluluk', src:'R',
+q:'"İşadamı basiretli tüccar gibi olmalıdır; işletme gelecekteki mali riskler için karşılık ayırmalı ve kârın bir kısmını yedek akçe olarak ayırmalıdır." Bu ifade muhasebenin hangi kavramıyla açıklanır?',
+opts:['Önemlilik kavramı','İhtiyatlılık kavramı','Maliyet esası kavramı','Kişilik kavramı','Sosyal sorumluluk kavramı'], ans:1},
+
+{n:54, tag:'Muhasebe: İhtiyatlılık & Sosyal Sorumluluk', src:'N',
+q:'Muhasebe işlemlerinde belirli kişi ve grupların değil toplum çıkarlarının gözetilmesini öngören kavram hangisidir?',
+opts:['Kişilik kavramı','İşletmenin sürekliliği','Dönemsellik','Sosyal sorumluluk kavramı','Tarafsızlık'], ans:3},
+
+{n:55, tag:'Muhasebe: İhtiyatlılık & Sosyal Sorumluluk', src:'N',
+q:'Muhasebenin temel kavramları kaç tanedir?',
+opts:['8','10','12','14','16'], ans:2},
+
+/* ── 17. HANGİ HESAPLAR BİLANÇO & SONUÇ ── */
+{n:56, tag:'Bilanço & Sonuç Hesapları', src:'R',
+q:'Aşağıdakilerden hangisi bilanço hesaplarından biridir?',
+opts:['Gelir tablosu hesapları','Serbest hesaplar','Dönen varlıklar','Nazım hesaplar','Maliyet hesapları'], ans:2},
+
+{n:57, tag:'Bilanço & Sonuç Hesapları', src:'N',
+q:'Bilanço eşitliği aşağıdakilerden hangisidir?',
+opts:['Gelirler = Giderler + Özkaynak','Varlıklar = Borçlar + Sermaye','Borçlar = Varlıklar – Gelirler','Sermaye = Gelirler – Giderler','Aktif = Gelir tablosu'], ans:1},
+
+{n:58, tag:'Bilanço & Sonuç Hesapları', src:'N',
+q:'Tek düzen hesap planında kaç hesap sınıfı (1-9 kodlaması) bulunur?',
+opts:['5','7','9','11','12'], ans:2,
+note:'1-9 arası: Dönen Varlıklar, Duran Varlıklar, KVYK, UVYK, Özkaynaklar, Gelir Tablosu, Maliyet, Serbest, Nazım Hesaplar.'},
+
+/* ── 18. İNSAN KAYNAKLARI: PLANLAMA & ENDÜSTRİYEL İLİŞKİLER ── */
+{n:59, tag:'İK: Planlama & Endüstriyel İlişkiler', src:'R',
+q:'Bir işletmenin gelecekteki işgücü arz ve talebinin sistematik olarak tahmini ifadesi insan kaynakları yönetiminin hangi işleviyle açıklanabilir?',
+opts:['İnsan kaynakları planlaması','İşe alma','İşe alıştırma','Performans değerlemesi','Endüstriyel ilişkiler'], ans:0},
+
+{n:60, tag:'İK: Planlama & Endüstriyel İlişkiler', src:'N',
+q:'"Endüstriyel ilişkiler" insan kaynakları yönetiminin hangi işlevine karşılık gelir?',
+opts:['İşe alma süreci','Ücret yönetimi','Bir ülkedeki sanayi işletmelerinin çalışma koşullarının belirlendiği düzen','Performans değerleme','İşe alıştırma (oryantasyon)'], ans:2},
+
+/* ── 19. REKLAM VE HALKLA İLİŞKİLER FARKLARI ── */
+{n:61, tag:'Reklam & Halkla İlişkiler Farkları', src:'R',
+q:'Aşağıdakilerden hangisi reklam ile halkla ilişkiler arasındaki farklardan biri değildir?',
+opts:['Halkla ilişkilerde işletme tanıtılır','Reklamda üretilen mal ve hizmet tanıtılır','Reklamda kâr elde edilmesi amaçlanır','Halkla ilişkilerde hedef kitle geniştir','Halkla ilişkilerde iletişim tek yönlüdür'], ans:4,
+note:'Halkla ilişkilerde iletişim iki yönlüdür; tek yönlü iletişim reklama özgüdür.'},
+
+{n:62, tag:'Reklam & Halkla İlişkiler Farkları', src:'N',
+q:'Reklamı halkla ilişkilerden ayıran temel özellik nedir?',
+opts:['Reklam ücretsiz yapılabilir','Reklam iki yönlü iletişim kullanır','Reklam bir pazarlama eylemi olup kâr amaçlar ve belirli ücret karşılığında yapılır','Reklamda hedef kitle geniştir','Reklamda işletme tanıtılır'], ans:2},
+
+/* ── 20. DİYALOG VE BASİT GELİŞTİRME ── */
+{n:63, tag:'Diyalog ve Basit Geliştirme', src:'R',
+q:'Daima başkalarını taklit ederek veya başkalarını izleyerek başlanan geliştirme aşaması hangisidir?',
+opts:['Temel araştırma','Uygulamalı araştırma','Bilimsel geliştirme','Diyalog ve basit geliştirme','Teknolojik geliştirme'], ans:3},
+
+{n:64, tag:'Diyalog ve Basit Geliştirme', src:'N',
+q:'Teknolojik geliştirme, diyalog ve basit geliştirmeden nasıl ayrılır?',
+opts:['Teknolojik geliştirme daha ucuzdur','Teknolojik geliştirme bir sonuca varmadan önce hesaplar, tecrübeler ve bir ya da birkaç deneme gerektirir','Teknolojik geliştirme başkalarını taklit ederek başlar','Teknolojik geliştirme yalnızca kamu kuruluşlarında yapılır','İkisi aynı aşamadır'], ans:1},
+
+/* ── 21. ARAŞTIRMA VE GELİŞTİRME ── */
+{n:65, tag:'Araştırma ve Geliştirme', src:'R',
+q:'Araştırmalar nitelikleri yönünden sınıflandırıldığında aşağıdakilerden hangisinden söz edilemez?',
+opts:['Temel araştırma','Uygulamalı araştırma','Basit geliştirme','Pazar geliştirme','Bilimsel geliştirme'], ans:3,
+note:'"Pazar geliştirme" araştırma türü değil, pazarlama stratejisidir.'},
+
+{n:66, tag:'Araştırma ve Geliştirme', src:'N',
+q:'Özel ticari bir uygulamayı amaçlamaksızın teknik bilgi dağarcığını genişletmek için yapılan araştırma türü hangisidir?',
+opts:['Uygulamalı araştırma','Teknolojik geliştirme','Temel araştırma','Diyalog geliştirme','Pazar araştırması'], ans:2},
+
+{n:67, tag:'Araştırma ve Geliştirme', src:'N',
+q:'Özel ticari bir uygulamayı gerçekleştirmek için teknik bilgiyi artırmak amacıyla girişilen araştırma türü hangisidir?',
+opts:['Temel araştırma','Bilimsel geliştirme','Uygulamalı araştırma','Diyalog geliştirme','Teknolojik geliştirme'], ans:2},
+
+/* ── 22. KÜÇÜK VE BÜYÜK İŞLETMELERİN ÜSTÜNLÜKLERİ ── */
+{n:68, tag:'Küçük & Büyük İşletme Üstünlükleri', src:'R',
+q:'Aşağıdakilerden hangisi küçük işletmelerin üstünlüklerinden birisi değildir?',
+opts:['Ekonomik dalgalanmalardan az etkilenirler','Yönetim sistemlerinin basitliğiyle hızlı ve etkili karar alabilirler','Hisse senedi ihraç ederek piyasadan geniş çapta borç para bulma imkânına sahiptirler','Tüketici istekleri ve modadaki değişimlere kolayca cevap verebilirler','Pazar koşullarındaki değişimlere kolayca uyum sağlarlar'], ans:2,
+note:'Hisse senedi ve tahvil ihracıyla geniş borç bulabilme büyük işletmelerin üstünlüğüdür.'},
+
+{n:69, tag:'Küçük & Büyük İşletme Üstünlükleri', src:'N',
+q:'Büyük işletmelerin temel üstünlüklerinden biri hangisidir?',
+opts:['Hızlı karar alma','Ekonomik dalgalanmalardan az etkilenme','Ölçek ekonomilerinden yararlanma ve yığın üretim yapabilme','Az sabit sermayeye sahip olma','Emek yoğun üretim yapma'], ans:2},
+
+{n:70, tag:'Küçük & Büyük İşletme Üstünlükleri', src:'N',
+q:'Aşağıdakilerden hangisi büyük işletmelerin yetersizliklerinden biridir?',
+opts:['Hisse senedi ihraç edememek','Yatırım yapamamak','Aşırı büyüklükten kaynaklanan koordinasyon güçlüğü ve bürokratik sorunlar','Ölçek ekonomisinden yararlanamamak','Düşük sermayeye sahip olmak'], ans:2},
+
+/* ── 23. EKONOMİK ANLAMDA YATIRIMLARIN 4 ÇEŞİDİ ── */
+{n:71, tag:'Yatırımların 4 Çeşidi', src:'R',
+q:'Aşağıdakilerden hangisi ekonomik anlamda yatırımlar içerisinde yer almaz?',
+opts:['Doğrudan üretime dönük yatırımlar','Altyapı yatırımları','Stok yatırımları','Beşeri yatırımlar','Mali yatırımlar'], ans:4,
+note:'4 ekonomik yatırım türü: doğrudan üretim, altyapı, stok ve beşeri yatırımlar. Mali yatırımlar bu kapsamda sayılmaz.'},
+
+{n:72, tag:'Yatırımların 4 Çeşidi', src:'N',
+q:'"Emeğin eğitim ve öğretimi için yapılan harcamalar" hangi yatırım türüdür?',
+opts:['Doğrudan üretime dönük yatırım','Altyapı yatırımı','Stok yatırımı','Beşeri/entelektüel yatırım','Mali yatırım'], ans:3},
+
+/* ── 24. ÖN ETÜT: YASAL & EKONOMİK ── */
+{n:73, tag:'Ön Etüt: Yasal & Ekonomik', src:'R',
+q:'İşletmenin türünün belirlendiği, kuruluş izinlerinin araştırıldığı ön etüd hangisidir?',
+opts:['Ekonomik etüd','Teknik etüd','Finansal etüd','Yasal etüd','Kesin proje'], ans:3},
+
+{n:74, tag:'Ön Etüt: Yasal & Ekonomik', src:'R',
+q:'Aşağıdakilerden hangisi fizibilite etüdleri içerisinde yer almaz?',
+opts:['Kesin proje','Ekonomik etüd','Teknik etüd','Finansal etüd','Yasal etüd'], ans:0,
+note:'"Kesin proje" fizibilite aşamasından SONRA gelen ayrı bir aşamadır; ön etüd değildir.'},
+
+/* ── 25. İŞLETME HUKUKİ SINIFLARI & HALKLA İLİŞKİLER ARAÇLARI ── */
+{n:75, tag:'İşletme Hukuki Sınıfları', src:'R',
+q:'Ticari bir işletmeyi bir ticaret unvanı altında işletmek amacıyla gerçek şahıslar arasında kurulan ve ortaklardan hiçbirinin sorumluluğu şirket alacaklarına karşı sınırlandırılmamış olan şirket hangisidir?',
+opts:['Komandit şirket','Kollektif şirket','Anonim şirket','Limited şirket','Tek kişi işletmesi'], ans:1},
+
+];
+
+// ════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════
+const S={order:QS.map((_,i)=>i),idx:0,ans:{},submitted:false,shuffle:false,screen:'start'};
+const L=['A','B','C','D','E'];
+const shuf=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
+
+// ════════════════════════════════════════════════════
+// RENDER
+// ════════════════════════════════════════════════════
+function render(){
+  if(S.screen==='start')return renderStart();
+  if(S.screen==='results')return renderResults();
+  renderExam();
+}
+
+function renderStart(){
+  const tags=[...new Set(QS.map(q=>q.tag))];
+  document.getElementById('app').innerHTML=`
+    <div class="start-card">
+      <div class="start-icon">📚</div>
+      <div class="start-title">Girişimcilik – 75 Soruluk Vize Sınavı</div>
+      <div class="start-desc">
+        Gerçek 2022-2023 ve 2020-2021 vize sınavlarından alınan sorular +<br>
+        ders notlarından üretilen hedefli sorular · <strong>25 konu</strong> tam kapsanmış
+      </div>
+      <div class="grid3">
+        <div class="gi"><div class="gi-n">75</div><div class="gi-l">Toplam Soru</div></div>
+        <div class="gi"><div class="gi-n">4</div><div class="gi-l">Her Soru (puan)</div></div>
+        <div class="gi"><div class="gi-n">300</div><div class="gi-l">Toplam Puan</div></div>
+      </div>
+      <div class="pills">${tags.map(t=>`<span class="pill">${t}</span>`).join('')}</div>
+      <div class="shuf-row">
+        <label class="toggle"><input type="checkbox" ${S.shuffle?'checked':''} onchange="toggleShuffle(this.checked)"><span class="toggle-slider"></span></label>
+        <span class="shuf-lbl">Soruları karıştır</span>
+      </div>
+      <button class="btn btn-p" style="margin:0 auto" onclick="startExam()">▶ Sınava Başla</button>
+    </div>`;
+}
+
+function renderExam(){
+  const total=S.order.length, qi=S.order[S.idx], q=QS[qi];
+  const ua=S.ans[S.idx], answered=ua!==undefined;
+  const pct=Math.round((S.idx+1)/total*100);
+  const allAns=Object.keys(S.ans).length===total;
+  const srcBadge=q.src==='R'
+    ?`<span class="q-src-real">📝 Gerçek Sınav</span>`
+    :`<span class="q-src-note">📖 Ders Notu</span>`;
+
+  const opts=q.opts.map((o,i)=>{
+    let cls='opt';
+    if(answered){cls+=' disabled';if(i===q.ans)cls+=' correct';else if(i===ua)cls+=' wrong';}
+    return `<div class="${cls}" onclick="pick(${i})">
+      <div class="opt-l">${L[i]}</div><div class="opt-t">${o}</div></div>`;
+  }).join('');
+
+  let fb='';
+  if(answered){
+    const ok=ua===q.ans;
+    const nt=q.note?`<br><span style="opacity:.7;font-size:.75rem">${q.note}</span>`:'';
+    fb=`<div class="fb show ${ok?'fb-ok':'fb-err'}">${ok?'✅ Doğru cevap!':`❌ Yanlış. Doğru: <strong>${L[q.ans]}) ${q.opts[q.ans]}</strong>`}${nt}</div>`;
+  }
+
+  document.getElementById('app').innerHTML=`
+    <div class="top-bar">
+      <span class="ans-count">Cevaplanan: ${Object.keys(S.ans).length} / ${total}</span>
+      <div class="shuf-row" style="margin-bottom:0">
+        <label class="toggle"><input type="checkbox" ${S.shuffle?'checked':''} onchange="toggleShuffle(this.checked)"><span class="toggle-slider"></span></label>
+        <span class="shuf-lbl">Karıştır (sıfırlar)</span>
+      </div>
+    </div>
+    <div class="prog-row">
+      <div class="prog-wrap"><div class="prog-bar" style="width:${pct}%"></div></div>
+      <div class="prog-txt">${S.idx+1} / ${total}</div>
+    </div>
+    <div class="q-card">
+      <div class="q-meta">
+        <span class="q-num">SORU ${q.n}</span>
+        <span class="q-tag">${q.tag}</span>
+        ${srcBadge}
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${opts}</div>
+      ${fb}
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-s" onclick="prevQ()" ${S.idx===0?'disabled':''}>← Önceki</button>
+      <div style="display:flex;gap:7px;flex-wrap:wrap;justify-content:center">
+        ${allAns&&!S.submitted?`<button class="btn btn-g" onclick="doSubmit()">✅ Sınavı Bitir</button>`:''}
+        ${S.submitted?`<button class="btn btn-y" onclick="goResults()">📊 Sonuçlar</button>`:''}
+        <button class="btn btn-r" onclick="doReset()">🔄 Sıfırla</button>
+      </div>
+      <button class="btn btn-s" onclick="nextQ()" ${S.idx===total-1?'disabled':''}>Sonraki →</button>
+    </div>`;
+}
+
+function renderResults(){
+  const total=S.order.length;
+  let correct=0,wrong=0,blank=0;
+  const details=S.order.map((qi,i)=>{
+    const q=QS[qi],ua=S.ans[i];
+    if(ua===undefined){blank++;return{s:'u',q,ua,i};}
+    if(ua===q.ans){correct++;return{s:'c',q,ua,i};}
+    wrong++;return{s:'w',q,ua,i};
+  });
+  const score=correct*4,pct=Math.round(correct/total*100),deg=Math.round(pct*3.6);
+  const msg=pct>=90?'🏆 Mükemmel!':pct>=75?'👏 Çok İyi!':pct>=60?'📖 İyi Gidiyorsun':pct>=50?'💪 Biraz Daha Çalış':'📚 Tekrar Dene';
+  const col=pct>=60?'var(--green)':pct>=40?'var(--yellow)':'var(--red)';
+
+  // topic breakdown
+  const byTag={};
+  details.forEach(d=>{
+    const t=d.q.tag;
+    if(!byTag[t])byTag[t]={c:0,tot:0};
+    byTag[t].tot++;
+    if(d.s==='c')byTag[t].c++;
+  });
+  const tpRows=Object.entries(byTag).map(([t,v])=>{
+    const p=Math.round(v.c/v.tot*100);
+    const bc=p>=60?'var(--green)':p>=40?'var(--yellow)':'var(--red)';
+    return `<div class="tp-row">
+      <div class="tp-name" title="${t}">${t}</div>
+      <div class="tp-bw"><div class="tp-b" style="width:${p}%;background:${bc}"></div></div>
+      <div class="tp-s">${v.c}/${v.tot}</div></div>`;
+  }).join('');
+
+  const tracker=details.map((d,i)=>`<div class="ti ${d.s==='c'?'tc':d.s==='w'?'tw':'tu'}" onclick="goQ(${d.i})" title="S${i+1}: ${d.q.tag}">${i+1}</div>`).join('');
+
+  const wrongs=details.filter(d=>d.s!=='c').map(d=>{
+    const ua=d.ua!==undefined?`${L[d.ua]}) ${d.q.opts[d.ua]}`:'Cevaplanmadı';
+    return `<div class="wc">
+      <div class="wc-meta"><span class="wc-num">Soru ${d.i+1}</span><span class="wc-tag">${d.q.tag}</span></div>
+      <div class="wc-q">${d.q.q}</div>
+      <div class="wc-u">❌ ${ua}</div>
+      <div class="wc-c">✅ ${L[d.q.ans]}) ${d.q.opts[d.q.ans]}</div>
+      ${d.q.note?`<div class="wc-note">${d.q.note}</div>`:''}</div>`;
+  }).join('');
+
+  document.getElementById('app').innerHTML=`
+    <div class="res-hero">
+      <div class="ring" style="background:conic-gradient(${col} ${deg}deg,var(--card2) ${deg}deg)">
+        <div class="ring-in"><div class="ring-pct">${pct}%</div><div class="ring-lbl">BAŞARI</div></div>
+      </div>
+      <div class="res-msg">${msg}</div>
+      <div class="res-det">${score} / ${total*4} puan</div>
+      <div class="res-grid">
+        <div class="rg"><div class="rg-n" style="color:var(--green)">${correct}</div><div class="rg-l">Doğru</div></div>
+        <div class="rg"><div class="rg-n" style="color:var(--red)">${wrong}</div><div class="rg-l">Yanlış</div></div>
+        <div class="rg"><div class="rg-n" style="color:var(--yellow)">${blank}</div><div class="rg-l">Boş</div></div>
+        <div class="rg"><div class="rg-n" style="color:var(--accent2)">${total}</div><div class="rg-l">Toplam</div></div>
+      </div>
+    </div>
+    <div class="tp-box"><div class="tp-title">📊 Konu Bazlı Performans</div>${tpRows}</div>
+    <div class="sec-ttl">📍 Soru Takibi</div>
+    <div class="tracker">${tracker}</div>
+    ${wrongs?`<div class="sec-ttl" style="margin-top:4px">❌ Yanlış & Boş Sorular</div>${wrongs}`:'<div style="color:var(--green);margin-bottom:14px;font-size:.88rem">🎉 Tüm soruları doğru yanıtladınız!</div>'}
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+      <button class="btn btn-p" onclick="doReset()">🔄 Tekrar Çöz</button>
+      <button class="btn btn-s" onclick="goQ(0)">← Sorulara Dön</button>
+    </div>`;
+}
+
+// ════════════════════════════════════════════════════
+// ACTIONS
+// ════════════════════════════════════════════════════
+function startExam(){if(S.shuffle)S.order=shuf(S.order);S.screen='exam';render();}
+function toggleShuffle(on){S.shuffle=on;if(S.screen==='exam'){S.order=on?shuf(QS.map((_,i)=>i)):QS.map((_,i)=>i);S.ans={};S.idx=0;S.submitted=false;}render();}
+function pick(i){if(S.ans[S.idx]!==undefined)return;S.ans[S.idx]=i;render();}
+function nextQ(){if(S.idx<S.order.length-1){S.idx++;render();}}
+function prevQ(){if(S.idx>0){S.idx--;render();}}
+function goQ(i){S.idx=i;S.screen='exam';render();}
+function doSubmit(){S.submitted=true;S.screen='results';render();}
+function goResults(){S.screen='results';render();}
+function doReset(){S.order=QS.map((_,i)=>i);S.idx=0;S.ans={};S.submitted=false;S.screen='start';render();}
+
+render();
+</script>
+
+</body>
+</html>
